@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>All Posts</h1>
+<!-- Add post form -->
+<form th:action="@{/posts/add}" method="post">
+    <textarea name="content" placeholder="Write a post..." required></textarea>
+    <button type="submit">Post</button>
+</form>
+
+<!-- Display all posts -->
+<ul>
+    <li th:each="post : ${posts}">
+        <p th:text="${post.content}"></p>
+        <small th:text="${post.createdAt}"></small>
+    </li>
+</ul>
+</body>
+</html>
+
